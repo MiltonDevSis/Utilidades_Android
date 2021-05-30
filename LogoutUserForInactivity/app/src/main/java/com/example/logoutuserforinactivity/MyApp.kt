@@ -19,7 +19,7 @@ class MyApp : Application() {
         return timer as Timer
     }
 
-    fun cancelTimer() {
+    private fun cancelTimer() {
         if (timer != null) timer!!.cancel()
     }
 
