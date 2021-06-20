@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="numero_1">Primeiro número</string>
+    <string name="numero_2">Segundo número</string>
+    <string name="resultado">resultado</string>
+    <string name="open_activity_2">open Activity 2</string>
+    <string name="add">Soma</string>
+    <string name="subtrai">Subtrai</string>
+    <string name="o_resultado_aparece_aqui">O resultado aparece aqui</string>
+</resources>
