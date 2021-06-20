@@ -7,6 +7,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 
 class MainActivity : AppCompatActivity() {
 
@@ -21,37 +22,39 @@ class MainActivity : AppCompatActivity() {
         val buttonFirst = findViewById<Button>(R.id.btnOne)
         textResult = findViewById(R.id.txtResultado)
 
+        val resultLauncher =
+            registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+                if (it.resultCode == RESULT_OK) {
+                    val result = it.data?.getIntExtra("resultado", 0)
+                    val text = " $result"
+                    textResult!!.text = text
+                }
+                if (it.resultCode == RESULT_CANCELED) {
+                    textResult!!.text = getString(R.string.nada_selecionado)
+                }
+            }
+
         buttonFirst.setOnClickListener {
 
             val numeroUm = edtPrimeiro.text.toString()
             val numeroDois = edtSegundo.text.toString()
 
-            if (numeroUm == "" || numeroDois == ""){
-                Toast.makeText(applicationContext, "Os campos são obrigatórios!", Toast.LENGTH_LONG).show()
-            }else{
-                val numeroUm = Integer.parseInt(edtPrimeiro.text.toString())
-                val numeroDois = Integer.parseInt(edtSegundo.text.toString())
+            when {
+                numeroUm.isEmpty() -> {
+                    edtPrimeiro.error = "Campo número vazio!"
+                }
+                numeroDois.isEmpty() -> {
+                    edtSegundo.error = "Campo número vazio!"
+                }
+                else -> {
+                    val numberUm = Integer.parseInt(edtPrimeiro.text.toString())
+                    val numberDois = Integer.parseInt(edtSegundo.text.toString())
 
-                val intent = Intent(this@MainActivity, SecondActivity::class.java)
-                intent.putExtra("numero1", numeroUm)
-                intent.putExtra("numero2", numeroDois)
-                startActivityForResult(intent, 1)
-            }
-        }
-    }
-
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-
-        if (requestCode == 1){
-            if (resultCode == RESULT_OK){
-                val result = data?.getIntExtra("resultado", 0)
-                textResult!!.text = " $result"
-            }
-
-            if (resultCode == RESULT_CANCELED){
-                textResult!!.text = getString(R.string.nada_selecionado)
+                    val intent = Intent(this@MainActivity, SecondActivity::class.java)
+                    intent.putExtra("numero1", numberUm)
+                    intent.putExtra("numero2", numberDois)
+                    resultLauncher.launch(intent)
+                }
             }
         }
     }

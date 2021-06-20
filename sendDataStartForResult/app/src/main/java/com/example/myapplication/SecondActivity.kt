@@ -8,7 +8,7 @@ import android.widget.Button
 import android.widget.TextView
 
 class SecondActivity : AppCompatActivity() {
-    @SuppressLint("SetTextI18n")
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_second)
@@ -20,7 +20,8 @@ class SecondActivity : AppCompatActivity() {
         val numero2 = intent.getIntExtra("numero2", 0)
 
         val textView = findViewById<TextView>(R.id.txtSegundaActivity)
-        textView.text = "Os Números são $numero1 , $numero2"
+        val text = "Os Números são $numero1 , $numero2"
+        textView.text = text
 
         val buttonAdd = findViewById<Button>(R.id.btnAdd)
         val buttonSubtract = findViewById<Button>(R.id.btnSubtract)
