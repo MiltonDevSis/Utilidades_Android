@@ -7,4 +7,5 @@
     <string name="add">Soma</string>
     <string name="subtrai">Subtrai</string>
     <string name="o_resultado_aparece_aqui">O resultado aparece aqui</string>
+    <string name="nada_selecionado">Nada selecionado!</string>
 </resources>
