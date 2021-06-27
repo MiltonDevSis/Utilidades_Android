@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Retrofit_ApiRest</string>
+    <string name="numero">Número</string>
+    <string name="salvar">Salvar</string>
+    <string name="phone_note_app">Phone Note App</string>
+    <string name="nome">Nome</string>
 </resources>
