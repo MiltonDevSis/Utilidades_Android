@@ -7,4 +7,7 @@
     <string name="icone_delete">icone delete</string>
     <string name="nome_usuario">Milton Filho</string>
     <string name="meu_fone">(48)99629-1731</string>
+    <string name="update_content">Update Contact</string>
+    <string name="enter_name">Enter name</string>
+    <string name="enter_phone">Enter Phone</string>
 </resources>
