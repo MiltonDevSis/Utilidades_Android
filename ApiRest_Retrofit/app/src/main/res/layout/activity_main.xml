@@ -10,42 +10,45 @@
         android:id="@+id/txtNomeApp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/phone_note_app"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="5dp"
         android:gravity="center"
-        android:textSize="30sp"/>
+        android:text="@string/phone_note_app"
+        android:textSize="30sp"
+        android:textStyle="bold"/>
 
     <androidx.viewpager.widget.ViewPager
         android:layout_width="match_parent"
         android:layout_height="2dp"
-        android:background="@color/black"/>
+        android:background="@color/black"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"/>
 
     <EditText
         android:id="@+id/edtNome"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:paddingStart="10dp"
-        android:paddingEnd="10dp"
-        android:inputType="text"
-        android:hint="@string/nome"
         android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
         android:layout_marginEnd="15dp"
-        android:importantForAutofill="no"/>
+        android:hint="@string/nome"
+        android:importantForAutofill="no"
+        android:inputType="text"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp" />
 
     <EditText
         android:id="@+id/edtNumero"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:paddingStart="10dp"
-        android:paddingEnd="10dp"
-        android:hint="@string/numero"
-        android:inputType="number"
         android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
         android:layout_marginEnd="15dp"
-        android:importantForAutofill="no"/>
+        android:hint="@string/telefone"
+        android:importantForAutofill="no"
+        android:inputType="number"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp" />
 
     <Button
         android:id="@+id/btnSalvar"
@@ -53,14 +56,16 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="12dp"
-        android:text="@string/salvar"/>
+        android:text="@string/salvar" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="8dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginEnd="15dp" />
+        android:layout_height="match_parent">
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </androidx.core.widget.NestedScrollView>
 </LinearLayout>
