@@ -2,8 +2,7 @@ package com.example.retrofit_apirest.ui
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.retrofit_apirest.data.Phone
-import com.example.retrofit_apirest.data.repository.MainRepository
+import com.example.retrofit_apirest.data.repository.PhoneRepository
 import com.example.retrofit_apirest.data.util.ApiState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.*
@@ -13,13 +12,13 @@ import javax.inject.Inject
 @HiltViewModel
 class PhoneViewModel
 @Inject
-constructor(private val mainRepository: MainRepository) : ViewModel() {
+constructor(private val phoneRepository: PhoneRepository) : ViewModel() {
 
     private val _apiStateFlow: MutableStateFlow<ApiState> = MutableStateFlow(ApiState.Empty)
     val apiState: StateFlow<ApiState> = _apiStateFlow
 
     fun getPhone() = viewModelScope.launch {
-        mainRepository.getPhone()
+        phoneRepository.getPhone()
             .onStart {
                 _apiStateFlow.value = ApiState.loading
             }.catch { e ->
@@ -29,8 +28,9 @@ constructor(private val mainRepository: MainRepository) : ViewModel() {
             }
     }
 
-    fun setPhone(
-        name: String,
-        phoneNo: Long
-    ) = mainRepository.setPhone(name = name, phoneNo = phoneNo)
+    fun setPhone(name: String, phoneNo: Long) = phoneRepository.setPhone(name = name, phoneNo = phoneNo)
+
+    fun deletePhone(userId: Int) = phoneRepository.deletePhone(userId)
+
+    fun updatePhone(userId: Int, name: String, phoneNo: Long) = phoneRepository.updatePhone(userId, name, phoneNo)
 }

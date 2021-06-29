@@ -6,12 +6,11 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.retrofit_apirest.data.Phone
+import com.example.retrofit_apirest.data.util.Listener
 import com.example.retrofit_apirest.databinding.EachRowBinding
-import javax.inject.Inject
 
 class PhoneAdapter
-@Inject
-constructor(): ListAdapter<Phone, PhoneAdapter.PhoneViewHolder>(Diff) {
+constructor(private val listener: Listener): ListAdapter<Phone, PhoneAdapter.PhoneViewHolder>(Diff) {
 
     inner class PhoneViewHolder(private val binding: EachRowBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -19,10 +18,15 @@ constructor(): ListAdapter<Phone, PhoneAdapter.PhoneViewHolder>(Diff) {
             binding.apply {
                 nameEach.text = phone.name
                 phoneNo.text = phone.phoneNo.toString()
+                imageDelete.setOnClickListener {
+                    listener.deleteOnClick(adapterPosition,phone.userId)
+                }
+                root.setOnClickListener {
+                    listener.updateOnClick(adapterPosition,phone.userId,phone.name,phone.phoneNo)
+                }
             }
         }
     }
-
 
     object Diff : DiffUtil.ItemCallback<Phone>() {
         override fun areItemsTheSame(oldItem: Phone, newItem: Phone): Boolean {

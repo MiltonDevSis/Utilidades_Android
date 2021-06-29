@@ -1,10 +1,8 @@
 package com.example.retrofit_apirest.data.network
 
 import com.example.retrofit_apirest.data.Phone
-import retrofit2.http.Field
-import retrofit2.http.FormUrlEncoded
-import retrofit2.http.GET
-import retrofit2.http.POST
+import retrofit2.http.*
+import retrofit2.Response
 
 interface ApiService {
 
@@ -21,4 +19,16 @@ interface ApiService {
         @Field("name") name:String,
         @Field("phoneNo") phoneNo:Long
     ):Phone
+
+    @DELETE("/v1/phone/{userId}")
+    suspend fun deletePhone(
+        @Path("userId") userId:Int) : Response<Unit>
+
+    @FormUrlEncoded
+    @PUT("/v1/phone/{userId}")
+    suspend fun updatePhone(
+        @Path("userId") userId: Int,
+        @Field("name") name:String,
+        @Field("phoneNo") phoneNo: Long
+    ):Response<Unit>
 }
