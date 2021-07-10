@@ -8,4 +8,5 @@
     <string name="image_save">Image save</string>
     <string name="image_edit">Image edit</string>
     <string name="image_delete">Image delete</string>
+    <string name="open_sheet">Open Sheet</string>
 </resources>
