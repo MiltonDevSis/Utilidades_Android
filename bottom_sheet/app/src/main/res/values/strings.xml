@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Bottom_sheet</string>
+    <string name="select">Select</string>
+    <string name="save">SAVE TO PHONE</string>
+    <string name="edit">EDIT</string>
+    <string name="delete">DELETE</string>
+    <string name="image_cencel">Image cencel</string>
+    <string name="image_save">Image save</string>
+    <string name="image_edit">Image edit</string>
+    <string name="image_delete">Image delete</string>
 </resources>

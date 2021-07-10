@@ -1,5 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/guede/Desktop/Apps-testes/bottom_sheet/app/src/main/res/drawable/cancel.xml" value="0.2703125" />
+        <entry key="..\:/Users/guede/Desktop/Apps-testes/bottom_sheet/app/src/main/res/drawable/delete.xml" value="0.2703125" />
+        <entry key="..\:/Users/guede/Desktop/Apps-testes/bottom_sheet/app/src/main/res/drawable/edit.xml" value="0.2703125" />
+        <entry key="..\:/Users/guede/Desktop/Apps-testes/bottom_sheet/app/src/main/res/drawable/save.xml" value="0.2703125" />
+        <entry key="..\:/Users/guede/Desktop/Apps-testes/bottom_sheet/app/src/main/res/drawable/white_background.xml" value="0.2703125" />
+        <entry key="..\:/Users/guede/Desktop/Apps-testes/bottom_sheet/app/src/main/res/layout/bottom_sheet.xml" value="0.264" />
+        <entry key="..\:/Users/guede/Desktop/Apps-testes/bottom_sheet/app/src/main/res/layout/white_back.xml" value="0.25416666666666665" />
+      </map>
+    </option>
+  </component>
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />

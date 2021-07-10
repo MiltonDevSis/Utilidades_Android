@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:layout_behavior="@string/bottom_sheet_behavior"
+    android:id="@+id/bottom_sheet"
+    android:background="#00000000">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/white_background"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/textSelect"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="20sp"
+                android:text="@string/select"
+                android:textColor="#000"
+                android:textSize="17sp"
+                android:textStyle="bold"/>
+
+            <ImageView
+                android:id="@+id/btnCancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="20sp"
+                android:contentDescription="@string/image_cencel"
+                android:src="@drawable/cancel" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1sp"
+                android:background="#A9DFDEDE"
+                android:layout_below="@id/textSelect"/>
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="20sp">
+
+            <ImageView
+                android:id="@+id/btnSave"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/save"
+                android:layout_marginStart="10sp"
+                android:contentDescription="@string/image_save" />
+
+            <TextView
+                android:id="@+id/textSave"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/save"
+                android:textColor="#000"
+                android:textSize="15sp"
+                android:layout_marginStart="10sp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="20sp">
+
+            <ImageView
+                android:id="@+id/btnEdit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/edit"
+                android:layout_marginStart="10sp"
+                android:contentDescription="@string/image_edit" />
+
+            <TextView
+                android:id="@+id/textEdit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/edit"
+                android:textColor="#000"
+                android:textSize="15sp"
+                android:layout_marginStart="10sp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="20sp">
+
+            <ImageView
+                android:id="@+id/btnDelete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/delete"
+                android:layout_marginStart="10sp"
+                android:contentDescription="@string/image_delete" />
+
+            <TextView
+                android:id="@+id/textDelete"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/delete"
+                android:textColor="#000"
+                android:textSize="15sp"
+                android:layout_marginStart="10sp"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
