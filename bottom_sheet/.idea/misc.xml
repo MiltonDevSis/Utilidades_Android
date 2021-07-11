@@ -3,14 +3,18 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/guede/Desktop/Apps-testes/bottom_sheet/app/src/main/res/drawable/bottom_item.xml" value="0.2703125" />
+        <entry key="..\:/Users/guede/Desktop/Apps-testes/bottom_sheet/app/src/main/res/drawable/bottom_sheet_share.xml" value="0.2703125" />
         <entry key="..\:/Users/guede/Desktop/Apps-testes/bottom_sheet/app/src/main/res/drawable/cancel.xml" value="0.2703125" />
         <entry key="..\:/Users/guede/Desktop/Apps-testes/bottom_sheet/app/src/main/res/drawable/delete.xml" value="0.2703125" />
         <entry key="..\:/Users/guede/Desktop/Apps-testes/bottom_sheet/app/src/main/res/drawable/edit.xml" value="0.2703125" />
         <entry key="..\:/Users/guede/Desktop/Apps-testes/bottom_sheet/app/src/main/res/drawable/save.xml" value="0.2703125" />
         <entry key="..\:/Users/guede/Desktop/Apps-testes/bottom_sheet/app/src/main/res/drawable/white_background.xml" value="0.2703125" />
         <entry key="..\:/Users/guede/Desktop/Apps-testes/bottom_sheet/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/guede/Desktop/Apps-testes/bottom_sheet/app/src/main/res/layout/bottom_sheet.xml" value="0.264" />
+        <entry key="..\:/Users/guede/Desktop/Apps-testes/bottom_sheet/app/src/main/res/layout/bottom_sheet.xml" value="0.4" />
         <entry key="..\:/Users/guede/Desktop/Apps-testes/bottom_sheet/app/src/main/res/layout/white_back.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/guede/Desktop/Apps-testes/bottom_sheet/app/src/main/res/menu/menu.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/guede/Desktop/Apps-testes/bottom_sheet/app/src/main/res/xml/stylesbf.xml" value="0.25416666666666665" />
       </map>
     </option>
   </component>

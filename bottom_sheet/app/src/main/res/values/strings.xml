@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">Bottom_sheet</string>
     <string name="select">Select</string>
-    <string name="save">SAVE TO PHONE</string>
-    <string name="edit">EDIT</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
     <string name="delete">DELETE</string>
     <string name="image_cencel">Image cencel</string>
     <string name="image_save">Image save</string>
