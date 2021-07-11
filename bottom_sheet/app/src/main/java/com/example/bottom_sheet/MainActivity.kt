@@ -17,35 +17,21 @@ class MainActivity : AppCompatActivity() {
         mBottton.setOnClickListener {
             showBottomSheetDialog()
         }
-
-
     }
 
     private fun showBottomSheetDialog() {
         val bottomSheetDialog = BottomSheetDialog(this)
         bottomSheetDialog.setContentView(R.layout.bottom_sheet)
-        val save = bottomSheetDialog.findViewById<LinearLayout>(R.id.save)
-        val edit = bottomSheetDialog.findViewById<LinearLayout>(R.id.edit)
-        val delete = bottomSheetDialog.findViewById<LinearLayout>(R.id.delete)
-        val cancel = bottomSheetDialog.findViewById<LinearLayout>(R.id.cancel)
+        val btnYes = bottomSheetDialog.findViewById<Button>(R.id.btnYes)
+        val btnNo = bottomSheetDialog.findViewById<Button>(R.id.btnNo)
 
-        save?.setOnClickListener {
-            Toast.makeText(applicationContext, "Save is Clicked ", Toast.LENGTH_LONG).show()
+        btnYes?.setOnClickListener {
+            Toast.makeText(applicationContext, "Yes is Clicked ", Toast.LENGTH_LONG).show()
             bottomSheetDialog.dismiss()
         }
 
-        edit?.setOnClickListener {
-            Toast.makeText(applicationContext, "Edit is Clicked ", Toast.LENGTH_LONG).show()
-            bottomSheetDialog.dismiss()
-        }
-
-        delete?.setOnClickListener {
-            Toast.makeText(applicationContext, "Delete is Clicked ", Toast.LENGTH_LONG).show()
-            bottomSheetDialog.dismiss()
-        }
-
-        cancel?.setOnClickListener {
-            Toast.makeText(applicationContext, "Cancel is Clicked ", Toast.LENGTH_LONG).show()
+        btnNo?.setOnClickListener {
+            Toast.makeText(applicationContext, "No is Clicked ", Toast.LENGTH_LONG).show()
             bottomSheetDialog.dismiss()
         }
 
