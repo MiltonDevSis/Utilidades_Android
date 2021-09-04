@@ -24,7 +24,7 @@ class LoginActivity : AppCompatActivity() {
         val login = binding.login
         val loading = binding.loading
 
-
+// teste
 
     }
 }
