@@ -1,4 +1,4 @@
-package com.mpfcoding.differents_flows
+package com.mpfcoding.differents_flows.ui
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

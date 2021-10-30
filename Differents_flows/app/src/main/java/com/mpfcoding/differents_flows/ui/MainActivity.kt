@@ -1,4 +1,4 @@
-package com.mpfcoding.differents_flows
+package com.mpfcoding.differents_flows.ui
 
 import android.os.Bundle
 import androidx.activity.viewModels
@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.google.android.material.snackbar.Snackbar
 import com.mpfcoding.differents_flows.databinding.ActivityMainBinding
+import com.mpfcoding.differents_flows.utils.Constants
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 

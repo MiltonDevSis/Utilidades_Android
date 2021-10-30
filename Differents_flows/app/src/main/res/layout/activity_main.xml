@@ -5,13 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".ui.MainActivity">
 
     <TextView
         android:id="@+id/textLiveData"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Any"
+        android:text="@string/any"
         android:layout_gravity="center"
         android:layout_marginTop="15dp"
         android:textSize="25sp"
@@ -26,14 +26,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="LiveData"
+        android:text="@string/livedata"
         android:layout_marginTop="10dp"/>
 
     <TextView
         android:id="@+id/textStateFlow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Any"
+        android:text="@string/any"
         android:layout_gravity="center"
         android:layout_marginTop="15dp"
         android:textSize="25sp"
@@ -48,14 +48,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="StateFlow"
+        android:text="@string/stateflow"
         android:layout_marginTop="10dp"/>
 
     <TextView
         android:id="@+id/textNormalFlow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Test Normal Flow"
+        android:text="@string/test_normal_flow"
         android:layout_gravity="center"
         android:layout_marginTop="15dp"
         android:textSize="25sp"
@@ -70,7 +70,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="Normal Flow"
+        android:text="@string/normal_flow"
         android:layout_marginTop="10dp"/>
 
     <TextView
@@ -93,7 +93,7 @@
         android:id="@+id/textSharedFlow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="SharedFlow"
+        android:text="@string/sharedflow"
         android:layout_gravity="center"
         android:layout_marginTop="15dp"
         android:textSize="25sp"
@@ -108,7 +108,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="SharedFlow"
+        android:text="@string/sharedflow"
         android:layout_marginTop="10dp"/>
 
     <TextView

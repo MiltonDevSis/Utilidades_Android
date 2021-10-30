@@ -1,6 +1,6 @@
-package com.mpfcoding.differents_flows
+package com.mpfcoding.differents_flows.utils
 
-class Constants(){
+class Constants{
     companion object {
         val descriptionNormalFlow: String = """ 
             Se rotacionar a tela depois de clicar em Normal flow o texto voltará ao estado normal,

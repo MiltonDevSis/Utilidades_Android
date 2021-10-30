@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Differents_flows</string>
+    <string name="any">Any</string>
+    <string name="livedata">LiveData</string>
+    <string name="stateflow">StateFlow</string>
+    <string name="test_normal_flow">Test Normal Flow</string>
+    <string name="normal_flow">Normal Flow</string>
+    <string name="sharedflow">SharedFlow</string>
 </resources>
