@@ -9,21 +9,34 @@ import com.google.android.material.bottomsheet.BottomSheetDialog
 
 class MainActivity : AppCompatActivity() {
 
+    private var mBottton: Button? = null
+    private var btnYes: Button? = null
+    private var btnNo: Button? = null
+    lateinit var bottomSheetDialog: BottomSheetDialog
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val mBottton = findViewById<Button>(R.id.button)
-        mBottton.setOnClickListener {
+        mapperComponents()
+        mapperActionComponents()
+    }
+
+    private fun mapperComponents(){
+        bottomSheetDialog = BottomSheetDialog(this)
+        bottomSheetDialog.setContentView(R.layout.bottom_sheet)
+        btnYes = bottomSheetDialog.findViewById(R.id.btnYes)
+        btnNo = bottomSheetDialog.findViewById(R.id.btnNo)
+        mBottton = findViewById(R.id.button)
+    }
+
+    private fun mapperActionComponents(){
+        mBottton?.setOnClickListener {
             showBottomSheetDialog()
         }
     }
 
     private fun showBottomSheetDialog() {
-        val bottomSheetDialog = BottomSheetDialog(this)
-        bottomSheetDialog.setContentView(R.layout.bottom_sheet)
-        val btnYes = bottomSheetDialog.findViewById<Button>(R.id.btnYes)
-        val btnNo = bottomSheetDialog.findViewById<Button>(R.id.btnNo)
 
         btnYes?.setOnClickListener {
             Toast.makeText(applicationContext, "Yes is Clicked ", Toast.LENGTH_LONG).show()
