@@ -7,6 +7,7 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 
 class MainViewModel : ViewModel() {
@@ -30,7 +31,10 @@ class MainViewModel : ViewModel() {
         viewModelScope.launch {
             countDownFlow
                 .filter { time ->
-                    time != 8
+                    time % 2 == 0
+                }
+                .map { time ->
+                    time + time
                 }
                 .collect { time ->
                     Log.i("Teste","The current time is $time")
