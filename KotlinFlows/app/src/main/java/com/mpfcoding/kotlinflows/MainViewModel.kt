@@ -1,6 +1,5 @@
 package com.mpfcoding.kotlinflows
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.delay
@@ -10,7 +9,7 @@ import kotlinx.coroutines.launch
 class MainViewModel : ViewModel() {
 
     val countDownFlow = flow {
-        val startingValue = 10
+        val startingValue = 5
         var currentValue = startingValue
         emit(startingValue)
         while (currentValue > 0) {
@@ -26,21 +25,13 @@ class MainViewModel : ViewModel() {
 
     private fun collectFlow() {
         viewModelScope.launch {
-            val count = countDownFlow
-                .filter { time -> // filtra os valores dentro do escopo
-                    time % 2 == 0
+            val reduceResult = countDownFlow
+                .reduce { accumulator, value ->
+                    println("Teste-acumulador =  $accumulator")
+                    println("Teste-Valor = $value")
+                    accumulator + value
                 }
-                .map { time -> // mapeia valores antigos por novos
-                    time + time
-                }
-                .onEach { time ->
-                   println(time)
-                }
-                .count {
-                    it % 2 == 0
-                }
-
-            println("The count is $count")
+            println("The count is $reduceResult")
         }
     }
 }
