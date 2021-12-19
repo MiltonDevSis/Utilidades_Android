@@ -26,7 +26,7 @@ class MainViewModel : ViewModel() {
     private fun collectFlow() {
         viewModelScope.launch {
             val reduceResult = countDownFlow
-                .reduce { accumulator, value ->
+                .fold(0) { accumulator, value ->
                     println("Teste-acumulador =  $accumulator")
                     println("Teste-Valor = $value")
                     accumulator + value
