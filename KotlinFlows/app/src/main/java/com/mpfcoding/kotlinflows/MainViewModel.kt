@@ -4,10 +4,7 @@ import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.delay
-import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.flow.filter
-import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 
 class MainViewModel : ViewModel() {
@@ -30,10 +27,13 @@ class MainViewModel : ViewModel() {
     private fun collectFlow() {
         viewModelScope.launch {
             countDownFlow
-                .filter { time ->
+                .onEach { time ->
+                    Log.i("Teste","Para cada resultado imprime $time")
+                }
+                .filter { time -> // filtra os valores dentro do escopo
                     time % 2 == 0
                 }
-                .map { time ->
+                .map { time -> // mapeia valores antigos por novos
                     time + time
                 }
                 .collect { time ->
