@@ -26,19 +26,21 @@ class MainViewModel : ViewModel() {
 
     private fun collectFlow() {
         viewModelScope.launch {
-            countDownFlow
-                .onEach { time ->
-                    Log.i("Teste","Para cada resultado imprime $time")
-                }
+            val count = countDownFlow
                 .filter { time -> // filtra os valores dentro do escopo
                     time % 2 == 0
                 }
                 .map { time -> // mapeia valores antigos por novos
                     time + time
                 }
-                .collect { time ->
-                    Log.i("Teste","The current time is $time")
+                .onEach { time ->
+                   println(time)
                 }
+                .count {
+                    it % 2 == 0
+                }
+
+            println("The count is $count")
         }
     }
 }
