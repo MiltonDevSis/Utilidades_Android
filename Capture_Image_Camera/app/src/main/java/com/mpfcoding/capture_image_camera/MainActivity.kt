@@ -24,21 +24,28 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        setComponents()
+        setListeners()
+    }
+
+    private fun setComponents(){
         image1 = findViewById(R.id.capture_image_1)
         image2 = findViewById(R.id.capture_image_2)
-        imageButton1 = findViewById(R.id.button_image_01)
-        imageButton2 = findViewById(R.id.button_image_02)
+        imageButton1 = findViewById(R.id.imageButton1)
+        imageButton2 = findViewById(R.id.imageButton2)
+    }
 
+    private fun setListeners(){
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED){
             ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.CAMERA), 100)
         }
 
-        imageButton1!!.setOnClickListener {
+        image1!!.setOnClickListener {
             val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
             startActivityForResult(intent, 100)
         }
 
-        imageButton2!!.setOnClickListener {
+        image2!!.setOnClickListener {
             val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
             startActivityForResult(intent, 101)
         }
@@ -46,20 +53,21 @@ class MainActivity : AppCompatActivity() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == 100){
+        if (requestCode == 100 && resultCode==RESULT_OK){
             val captureImage1 = data!!.extras!!.get("data") as Bitmap
 
             val teste = ImageUtil.bitmapToBase64(captureImage1)
 
             image1!!.setImageBitmap(captureImage1)
             imageButton1!!.visibility = View.GONE
-        }else if (requestCode == 101){
+
+        }else if (requestCode == 101 && resultCode==RESULT_OK){
             val captureImage2 = data!!.extras!!.get("data") as Bitmap
 
             val teste = ImageUtil.bitmapToBase64(captureImage2)
 
             image2!!.setImageBitmap(captureImage2)
-            imageButton2!!.visibility = View.GONE
+            imageButton1!!.visibility = View.GONE
         }
     }
 }

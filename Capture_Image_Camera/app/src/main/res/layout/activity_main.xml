@@ -20,7 +20,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/button_image_01"
+        android:id="@+id/imageButton1"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:src="@drawable/ic_plus_24"
@@ -42,7 +42,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/button_image_02"
+        android:id="@+id/imageButton2"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:src="@drawable/ic_plus_24"
