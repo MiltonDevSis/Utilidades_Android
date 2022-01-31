@@ -4,6 +4,7 @@ import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
+import android.graphics.Matrix
 import android.os.Bundle
 import android.provider.MediaStore
 import android.view.View
@@ -11,7 +12,6 @@ import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import com.mpfcoding.capture_image_camera.util.ImageUtil
 
 class MainActivity : AppCompatActivity() {
 
@@ -28,15 +28,15 @@ class MainActivity : AppCompatActivity() {
         setListeners()
     }
 
-    private fun setComponents(){
+    private fun setComponents() {
         image1 = findViewById(R.id.capture_image_1)
         image2 = findViewById(R.id.capture_image_2)
         imageButton1 = findViewById(R.id.imageButton1)
         imageButton2 = findViewById(R.id.imageButton2)
     }
 
-    private fun setListeners(){
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED){
+    private fun setListeners() {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.CAMERA), 100)
         }
 
@@ -51,23 +51,40 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    private fun fixOrientation(mBitmap: Bitmap): Bitmap? {
+        if (mBitmap.width > mBitmap.height) {
+            val matrix = Matrix()
+            matrix.postRotate(90F)
+            return Bitmap.createBitmap(mBitmap, 0, 0, mBitmap.width, mBitmap.height, matrix, true)
+        }
+        return null
+    }
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == 100 && resultCode==RESULT_OK){
-            val captureImage1 = data!!.extras!!.get("data") as Bitmap
+        if (requestCode == 100 && resultCode == RESULT_OK) {
+            val mBitmap = data!!.extras!!.get("data") as Bitmap
 
-            val teste = ImageUtil.bitmapToBase64(captureImage1)
+            rotateImage(mBitmap, image1)
 
-            image1!!.setImageBitmap(captureImage1)
             imageButton1!!.visibility = View.GONE
 
-        }else if (requestCode == 101 && resultCode==RESULT_OK){
-            val captureImage2 = data!!.extras!!.get("data") as Bitmap
+        } else if (requestCode == 101 && resultCode == RESULT_OK) {
+            val mBitmap = data!!.extras!!.get("data") as Bitmap
 
-            val teste = ImageUtil.bitmapToBase64(captureImage2)
+            rotateImage(mBitmap, image2)
 
-            image2!!.setImageBitmap(captureImage2)
-            imageButton1!!.visibility = View.GONE
+            imageButton2!!.visibility = View.GONE
+        }
+    }
+
+    private fun rotateImage(mBitmap: Bitmap, imageView: ImageView?) {
+        val resultImage = fixOrientation(mBitmap)
+
+        if (resultImage != null) {
+            imageView!!.setImageBitmap(resultImage)
+        } else {
+            imageView!!.setImageBitmap(mBitmap)
         }
     }
 }
