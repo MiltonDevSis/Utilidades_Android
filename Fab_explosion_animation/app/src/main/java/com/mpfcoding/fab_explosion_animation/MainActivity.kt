@@ -1,11 +1,10 @@
 package com.mpfcoding.fab_explosion_animation
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
 import android.os.Bundle
 import android.view.animation.AccelerateDecelerateInterpolator
-import android.view.animation.Animation
 import android.view.animation.AnimationUtils
-import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import com.mpfcoding.fab_explosion_animation.databinding.ActivityMainBinding
@@ -33,7 +32,7 @@ class MainActivity : AppCompatActivity() {
                 binding.circle.isVisible = false
 
                 // open next screen
-
+                startActivity(Intent(this, NextActivity::class.java))
             }
         }
     }
