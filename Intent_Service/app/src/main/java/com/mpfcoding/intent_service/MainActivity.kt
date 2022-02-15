@@ -15,15 +15,44 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.buttonStart.setOnClickListener {
-            Intent(this, MyIntentService::class.java).also {
+            Intent(this, MyService::class.java).also {
                 startService(it)
-                binding.textService.text = "Service running"
+                binding.textService.text = "Service running..."
             }
         }
 
         binding.buttonStop.setOnClickListener {
-            MyIntentService.stopService()
-            binding.textService.text = "Service stopped"
+            Intent(this, MyService::class.java).also {
+                stopService(it)
+                binding.textService.text = "Service stopped"
+            }
         }
+
+        binding.buttonSendData.setOnClickListener {
+            Intent(this, MyService::class.java).also {
+                val dataString = binding.editData.text.toString()
+                it.putExtra("EXTRA_DATA", dataString)
+                startService(it)
+            }
+        }
+
+        createIntentService()
+    }
+
+    /**
+     * codigo para estudar sobre Intent Service
+     */
+    private fun createIntentService() {
+//        binding.buttonStart.setOnClickListener {
+//            Intent(this, MyIntentService::class.java).also {
+//                startService(it)
+//                binding.textService.text = "Service running"
+//            }
+//        }
+//
+//        binding.buttonStop.setOnClickListener {
+//            MyIntentService.stopService()
+//            binding.textService.text = "Service stopped"
+//        }
     }
 }
