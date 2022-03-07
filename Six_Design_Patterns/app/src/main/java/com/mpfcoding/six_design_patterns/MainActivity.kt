@@ -10,13 +10,20 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         singletonPattern()
+
+        createDialogFactory()
     }
 
     private fun singletonPattern(){
         val message = "Hello word"
-        val messageTwo = Singleton.message
+        val messageTwo = SingletonPattern.message
 
-        Singleton.showMessage(message)
-        Singleton.showMessageTwo(messageTwo)
+        SingletonPattern.showMessage(message)
+        SingletonPattern.showMessageTwo(messageTwo)
+    }
+
+    private fun createDialogFactory(){
+
+        val dialog = DialogFactory.createDialog(Dialogtype.DIALOG_CREATE_CHAT)
     }
 }

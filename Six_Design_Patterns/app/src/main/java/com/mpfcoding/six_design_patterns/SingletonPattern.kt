@@ -2,7 +2,7 @@ package com.mpfcoding.six_design_patterns
 
 import android.util.Log
 
-object Singleton {
+object SingletonPattern {
 
     const val message = "More one test"
 
