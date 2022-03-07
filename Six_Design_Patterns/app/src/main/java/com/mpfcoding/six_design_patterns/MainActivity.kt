@@ -12,6 +12,8 @@ class MainActivity : AppCompatActivity() {
         singletonPattern()
 
         createDialogFactory()
+
+        createHamburguerBuild()
     }
 
     private fun singletonPattern(){
@@ -25,5 +27,15 @@ class MainActivity : AppCompatActivity() {
     private fun createDialogFactory(){
 
         val dialog = DialogFactory.createDialog(Dialogtype.DIALOG_CREATE_CHAT)
+    }
+
+    private fun createHamburguerBuild(){
+        val hamburguer = HamburguerBuilderPattern.Builder()
+        hamburguer.beef(true)
+        hamburguer.onions(true)
+        hamburguer.cheese(false)
+        hamburguer.build()
+
+        println(hamburguer.toString())
     }
 }
