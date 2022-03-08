@@ -9,7 +9,7 @@ import retrofit2.http.GET
  * implementação da API sem causar impacto no resto do projeto.
  * O Retrofit da Square é uma biblioteca Android que ajuda a implementar o Design pattern de Facade. Você cria uma interface para
  * fornecer os dados da API para classes do cliente da seguinte forma:
- * O cliente simplesmente precisa chamar listRepos() para receber uma lista de respositórios no retorno de chamada. É claro e limpo.
+ * O cliente simplesmente precisa chamar getHamburgers() para receber uma lista de respositórios no retorno de chamada. É claro e limpo.
  * Isso permite que você faça todos os tipos de personalizações abaixo sem afetar o cliente. Por exemplo, você pode especificar
  * um desserializador personalizado de JSON e sua Activity nem precisa entender o que está acontecendo:
  */
