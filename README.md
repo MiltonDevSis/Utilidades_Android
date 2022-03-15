@@ -22,3 +22,4 @@
 17. [Ktor http request](/ktor_http_request)
 18. [Ktor http request 2.0](/ktor_http_request_2.0)
 19. [Send data start for result](/sendDataStartForResult)
+20. [Complex animation with MotionLayout and Compose](/AnimationWithMotionLayout)
