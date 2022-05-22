@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "87683634805",
+    "project_id": "fir-analyticsevents-89b29",
+    "storage_bucket": "fir-analyticsevents-89b29.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:87683634805:android:e8ee80ec3bd258f8d60a3c",
+        "android_client_info": {
+          "package_name": "com.mpfcoding.firebaseanalyticsevents"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "87683634805-lg70aiv24m478ih08s0mq1j2nta8j831.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAjlrCFZbKzoBoQlsalA4J9AGkJPal3ujg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "87683634805-lg70aiv24m478ih08s0mq1j2nta8j831.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
