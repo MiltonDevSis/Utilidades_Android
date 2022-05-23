@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    tools:ignore="HardcodedText">
 
     <Button
         android:id="@+id/buttonLogin"
@@ -40,4 +41,28 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
+    <EditText
+        android:id="@+id/editLiveData"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Digite algo"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginVertical="30dp"
+        app:layout_constraintTop_toBottomOf="@+id/buttonCrash"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:importantForAutofill="no"
+        android:inputType="text" />
+
+    <TextView
+        android:id="@+id/textLiveData"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="O resultado vai aparecer aqui"
+        android:textSize="20sp"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginVertical="30dp"
+        app:layout_constraintTop_toBottomOf="@+id/editLiveData"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
