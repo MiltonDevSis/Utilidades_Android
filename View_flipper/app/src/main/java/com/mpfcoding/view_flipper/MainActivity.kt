@@ -2,6 +2,7 @@ package com.mpfcoding.view_flipper
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.animation.AnimationUtils
 import androidx.activity.viewModels
 import com.mpfcoding.view_flipper.databinding.ActivityMainBinding
 
@@ -21,26 +22,41 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun mapActionComponents(){
-        binding.buttonLoading.setOnClickListener {
-            viewModel.triggerLiveData(0)
-        }
+        binding.buttonLoading.setOnClickListener { viewModel.triggerLiveData(FLIPPER_LOADING) }
 
-        binding.buttonSucess.setOnClickListener {
-            viewModel.triggerLiveData(1)
-        }
+        binding.buttonSucess.setOnClickListener { viewModel.triggerLiveData(FLIPPER_SUCESS) }
 
-        binding.buttonError.setOnClickListener {
-            viewModel.triggerLiveData(2)
-        }
+        binding.buttonError.setOnClickListener { viewModel.triggerLiveData(FLIPPER_ERROR) }
+
+        binding.buttonAny.setOnClickListener { viewModel.triggerLiveData(FLIPPER_ANY) }
     }
 
     private fun subscriberObservers(){
         viewModel.liveData.observe(this) { viewFlipper ->
             binding.layoutViewFlipper.displayedChild = when (viewFlipper) {
-                0 -> FLIPPER_LOADING
-                1 -> FLIPPER_SUCESS
-                else -> {
+                0 -> {
+                    binding.layoutViewFlipper.inAnimation =
+                        AnimationUtils.loadAnimation(this@MainActivity, R.anim.in_from_left)
+
+                    FLIPPER_LOADING
+                }
+                1 -> {
+                    binding.layoutViewFlipper.inAnimation =
+                        AnimationUtils.loadAnimation(this@MainActivity, R.anim.in_from_right)
+
+                    FLIPPER_SUCESS
+                }
+                2 -> {
+                    binding.layoutViewFlipper.inAnimation =
+                        AnimationUtils.loadAnimation(this@MainActivity, R.anim.out_from_left)
+
                     FLIPPER_ERROR
+                }
+                else -> {
+                    binding.layoutViewFlipper.inAnimation =
+                        AnimationUtils.loadAnimation(this@MainActivity, R.anim.out_from_right)
+
+                    FLIPPER_ANY
                 }
             }
         }
@@ -50,5 +66,6 @@ class MainActivity : AppCompatActivity() {
         private const val FLIPPER_LOADING = 0
         private const val FLIPPER_SUCESS = 1
         private const val FLIPPER_ERROR = 2
+        private const val FLIPPER_ANY = 3
     }
 }
