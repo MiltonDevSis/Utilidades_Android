@@ -29,6 +29,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var buttonSoma: Button
     private lateinit var buttonMultiplica: Button
     private lateinit var txtResultado: TextView
+    private lateinit var txtResultadoPlurals: TextView
 
     private lateinit var imageGlide: ImageView
 
@@ -49,9 +50,16 @@ class MainActivity : AppCompatActivity() {
         buttonSoma = findViewById(R.id.buttonSoma)
         buttonMultiplica = findViewById(R.id.buttonMultiplica)
         txtResultado = findViewById(R.id.textResultado)
+        txtResultadoPlurals = findViewById(R.id.textResultadoPlurals)
     }
 
     private fun setListeners() {
+        // Caso haja mais de 2 ou + emails, o terceiro parametro é passado para a String
+        val emailCount = 1
+
+        txtResultadoPlurals.text = resources.getQuantityString(
+            R.plurals.welcome_messages, emailCount, "Milton", emailCount)
+
         buttonTest.setOnClickListener {
             Toast.makeText(this, testeString, Toast.LENGTH_LONG).show()
         }

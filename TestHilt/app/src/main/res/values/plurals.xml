@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <plurals name="welcome_messages">
+        <item quantity="one">Hello, %1$s! You have a new message.</item>
+        <item quantity="other">Hello, %1$s! You have %2$d new messages.</item>
+    </plurals>
+
+</resources>
