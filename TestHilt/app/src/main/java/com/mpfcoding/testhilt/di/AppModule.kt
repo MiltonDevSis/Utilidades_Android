@@ -11,5 +11,4 @@ object AppModule {
 
     @Provides
     fun provideTestString() = "This is a string we will inject"
-
 }
