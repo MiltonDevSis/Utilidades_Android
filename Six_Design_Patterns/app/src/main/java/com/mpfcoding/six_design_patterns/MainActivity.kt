@@ -2,18 +2,39 @@ package com.mpfcoding.six_design_patterns
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.TextView
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
+import javax.inject.Named
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
+
+    @Inject
+    @Named("TextMain")
+    lateinit var hamburguer: String
+
+    @Inject
+    @Named("TextMainTwo")
+    lateinit var chesse: String
+
+    private lateinit var textMain: TextView
+    private lateinit var textMainTwo: TextView
+    private lateinit var textMainClass: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        textMain = findViewById(R.id.textMain)
+        textMainTwo = findViewById(R.id.textMainTwo)
+        textMainClass = findViewById(R.id.textMainClass)
+
+        createHamburguerBuild()
+
         singletonPattern()
 
         createDialogFactory()
-
-        createHamburguerBuild()
     }
 
     private fun singletonPattern(){
@@ -30,12 +51,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun createHamburguerBuild(){
-        val hamburguer = HamburguerBuilderPattern.Builder()
-        hamburguer.beef(true)
-        hamburguer.onions(true)
-        hamburguer.cheese(false)
-        hamburguer.build()
+        textMain.text = hamburguer
 
-        println(hamburguer.toString())
+        textMainTwo.text = chesse
     }
 }

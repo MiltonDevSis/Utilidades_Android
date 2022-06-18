@@ -4,19 +4,17 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ActivityComponent
-import javax.inject.Singleton
+import javax.inject.Named
 
 @Module
 @InstallIn(ActivityComponent::class)
 object DependencyInjectionPattern {
 
-    @Singleton
     @Provides
-    fun provideHamburguer(): HamburguerBuilderPattern{
-        return HamburguerBuilderPattern.Builder()
-            .cheese(true)
-            .beef(true)
-            .onions(true)
-            .build()
-    }
+    @Named("TextMain")
+    fun provideHamburguer() = "Injetar hamburguer"
+
+    @Provides
+    @Named("TextMainTwo")
+    fun provideChesse() = "Injetar chesse"
 }
