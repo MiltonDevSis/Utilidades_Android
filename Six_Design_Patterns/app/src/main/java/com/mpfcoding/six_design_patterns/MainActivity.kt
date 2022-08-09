@@ -3,6 +3,7 @@ package com.mpfcoding.six_design_patterns
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
+import com.mpfcoding.six_design_patterns.model.Address
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 import javax.inject.Named
@@ -35,9 +36,13 @@ class MainActivity : AppCompatActivity() {
         singletonPattern()
 
         createDialogFactory()
+
+        populateAddress().also {
+            println(it.state)
+        }
     }
 
-    private fun singletonPattern(){
+    private fun singletonPattern() {
         val message = "Hello word"
         val messageTwo = SingletonPattern.message
 
@@ -45,14 +50,20 @@ class MainActivity : AppCompatActivity() {
         SingletonPattern.showMessageTwo(messageTwo)
     }
 
-    private fun createDialogFactory(){
+    private fun createDialogFactory() {
 
         val dialog = DialogFactory.createDialog(Dialogtype.DIALOG_CREATE_CHAT)
     }
 
-    private fun createHamburguerBuild(){
+    private fun createHamburguerBuild() {
         textMain.text = hamburguer
 
         textMainTwo.text = chesse
     }
+
+    fun populateAddress() = AddressBuilder {
+        city("São paulo")
+        state("Santa Catarina")
+        zipCode("88840123")
+    }.build()
 }
