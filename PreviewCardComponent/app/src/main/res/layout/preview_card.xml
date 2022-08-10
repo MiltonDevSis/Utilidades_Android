@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/ratingMyDeliveredCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_default_large"
+        android:background="@color/white"
+        app:cardCornerRadius="@dimen/margin_default_large"
+        app:cardElevation="@dimen/margin_default_medium">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:overScrollMode="never">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/margin_default_medium">
+
+                <LinearLayout
+                    android:id="@+id/linearLayout"
+                    android:layout_width="@dimen/margin_default_without_margin"
+                    android:layout_height="40dp"
+                    android:background="@color/rmsHeaderBackgroundColor"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/imageViewStatus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_default_medium"
+                        android:layout_weight="0"
+                        android:padding="@dimen/margin_default_medium"
+                        app:srcCompat="@drawable/indicator_status" />
+
+                    <TextView
+                        android:id="@+id/textViewDeliveredStatus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="start"
+                        android:textAllCaps="true"
+                        android:text="COMPLETED"
+                        android:textSize="@dimen/text_size_default_medium"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/containerLinerLayoutIconAndId"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_default_large"
+                    android:layout_marginTop="@dimen/margin_default_medium"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/imgViewIcon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:srcCompat="@drawable/ic_express_delivery" />
+
+                    <TextView
+                        android:id="@+id/ratingMyDeliveredTvUseCaseId"
+                        tools:text="ID#123456789-01"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_default_medium" />
+
+                </LinearLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/containerRatingMyDelivery"
+                    android:layout_width="@dimen/margin_default_without_margin"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/containerLinerLayoutIconAndId">
+
+                    <TextView
+                        android:id="@+id/textViewTotal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_default_large"
+                        android:layout_marginTop="@dimen/margin_default_medium"
+                        android:text="@string/rating_service_total_in_preview_card"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/textViewTotalValue"
+                        tools:text="$2,556.00"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_default_large"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textViewTotal" />
+
+                    <TextView
+                        android:id="@+id/textViewDelivredOn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_default_large"
+                        android:layout_marginTop="@dimen/margin_default_medium"
+                        android:text="@string/rating_service_delivered_on_in_preview_card"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textViewTotalValue" />
+
+                    <TextView
+                        android:id="@+id/textViewDelivredOnValue"
+                        tools:text="Tuesday, July 30"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_default_large"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textViewDelivredOn" />
+
+                    <TextView
+                        android:id="@+id/textViewDeliveredBy"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_default_large"
+                        android:layout_marginTop="@dimen/margin_default_medium"
+                        android:text="@string/rating_service_vendor_name_in_preview_card"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textViewDelivredOnValue" />
+
+                    <TextView
+                        android:id="@+id/textViewDeliveredVendorName"
+                        tools:text="Ambev"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_default_large"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textViewDeliveredBy" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/containerRatingMyService"
+                    tools:visibility="visible"
+                    android:layout_width="@dimen/margin_default_without_margin"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_default_medium"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/containerLinerLayoutIconAndId">
+
+                    <LinearLayout
+                        android:id="@+id/containerVendorAndCategory"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_default_large"
+                        android:orientation="horizontal"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <TextView
+                            android:id="@+id/textViewVendorNameService"
+                            tools:visibility="visible"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="4dp"
+                            android:text="@string/rating_service_vendor"
+                            android:textSize="@dimen/text_size_default_small"
+                            android:visibility="gone" />
+
+                        <TextView
+                            android:id="@+id/textViewCategoryService"
+                            tools:text="@string/rating_service_category"
+                            tools:visibility="visible"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/text_size_default_small"
+                            android:visibility="gone" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/textViewRequestedByService"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_default_large"
+                        android:layout_marginTop="@dimen/margin_default_medium"
+                        android:text="@string/rating_service_request_by"
+                        app:layout_constraintBottom_toTopOf="@+id/textViewCompletedOnService"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/containerVendorAndCategory" />
+
+                    <TextView
+                        android:id="@+id/textViewCompletedOnService"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_default_large"
+                        android:layout_marginTop="@dimen/margin_default_large"
+                        android:text="@string/rating_service_completed_on"
+                        app:layout_constraintBottom_toTopOf="@+id/textViewDescriptonService"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textViewRequestedByService" />
+
+                    <TextView
+                        android:id="@+id/textViewDescriptonService"
+                        tools:text="@tools:sample/lorem/random"
+                        android:layout_width="@dimen/margin_default_without_margin"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/margin_default_large"
+                        android:layout_marginTop="@dimen/margin_default_large"
+                        android:ellipsize="end"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textViewCompletedOnService" />
+
+                    <TextView
+                        android:id="@+id/textViewShowMoreService"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_default_large"
+                        android:layout_marginTop="@dimen/margin_default_large"
+                        android:text="@string/rating_service_show_more"
+                        android:textColor="@color/rmsLinkColor"
+                        android:visibility="gone"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textViewDescriptonService" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+    </androidx.cardview.widget.CardView>
+</LinearLayout>
+

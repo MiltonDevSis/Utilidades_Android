@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="PreviewCard">
+        <attr name="preview_card_id" format="string"/>
+        <attr name="preview_card_total" format="string" />
+        <attr name="preview_card_order_number" format="string" />
+        <attr name="preview_card_use_case_id" format="string" />
+        <attr name="preview_card_delivery_date" format="string" />
+        <attr name="preview_card_vendor_name" format="string" />
+        <attr name="preview_card_status" format="string" />
+        <attr name="preview_card_update_date" format="string" />
+        <attr name="preview_card_subject" format="string" />
+        <attr name="preview_card_client" format="string" />
+        <attr name="preview_card_category" format="string" />
+        <attr name="preview_card_resolution" format="string" />
+    </declare-styleable>
+</resources>

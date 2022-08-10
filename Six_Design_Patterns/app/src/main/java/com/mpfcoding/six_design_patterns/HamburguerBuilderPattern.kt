@@ -12,9 +12,15 @@ class HamburguerBuilderPattern private constructor(
 
         fun cheese(value: Boolean) = apply { cheese = value }
 
+        fun cheese() = cheese
+
         fun beef(value: Boolean) = apply { beef = value }
 
+        fun beef() = beef
+
         fun onions(value: Boolean) = apply { onions = value }
+
+        fun onion() = onions
 
         fun build() = HamburguerBuilderPattern(cheese, beef, onions)
     }

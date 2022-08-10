@@ -1,9 +1,8 @@
 package com.mpfcoding.six_design_patterns
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
-import com.mpfcoding.six_design_patterns.model.Address
+import androidx.appcompat.app.AppCompatActivity
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 import javax.inject.Named

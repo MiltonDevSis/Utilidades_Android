@@ -2,7 +2,6 @@ package com.mpfcoding.six_design_patterns
 
 import com.mpfcoding.six_design_patterns.model.Address
 import com.mpfcoding.six_design_patterns.util.Builder
-import com.mpfcoding.six_design_patterns.util.StringValidations
 
 class AddressBuilder(
     block: AddressBuilder.() -> Unit
@@ -29,10 +28,10 @@ class AddressBuilder(
     override fun build() = address.apply {
         val errorMessage =  StringBuilder().apply {
             appendLine()
-            StringValidations {
-                isNullOrBlank(city, "City")
-                isNullOrBlank(state, "State")
-            }.buildMessage()
+//            StringValidations {
+//                isNullOrBlank(city, "City")
+//                isNullOrBlank(state, "State")
+//            }.buildMessage()
         }
         require(errorMessage.isBlank()) { errorMessage }
     }
