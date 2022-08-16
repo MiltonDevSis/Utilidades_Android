@@ -1,41 +1,35 @@
 package com.mpfcoding.viewmodelbadimplementation.ui.main
 
-import android.content.Context
-import androidx.lifecycle.*
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.asLiveData
+import androidx.lifecycle.viewModelScope
 import com.mpfcoding.viewmodelbadimplementation.data.NewsRepository
-import com.mpfcoding.viewmodelbadimplementation.db.NewsEntity
-import com.mpfcoding.viewmodelbadimplementation.network.ApiService
+import com.mpfcoding.viewmodelbadimplementation.domain.News
 import kotlinx.coroutines.launch
 
 class MainViewModel(
-    protected val context: Context,
-    protected val newsRepository: NewsRepository,
-    protected val apiService: ApiService
+    private val newsRepository: NewsRepository
 ) : ViewModel() {
 
-    val newsEvent: LiveData<List<NewsEntity>> =
-        newsRepository.getNews(context).asLiveData()
+    val newsEvent: LiveData<List<News>> =
+        newsRepository.allNews.asLiveData(viewModelScope.coroutineContext)
 
-    fun getNews() = viewModelScope.launch {
-        val newsEntityList = apiService.getNews().news.map {
-            NewsEntity(title = it)
+    init {
+        viewModelScope.launch {
+            newsRepository.getAndStoreNews()
         }
-
-        newsRepository.saveNews(context, newsEntityList)
     }
 
     class MainViewModelFactory(
-        private val context: Context,
-        private val newsRepository: NewsRepository,
-        private val apiService: ApiService
+        private val newsRepository: NewsRepository
     ) : ViewModelProvider.Factory {
 
         override fun <T : ViewModel> create(modelClass: Class<T>): T {
             return modelClass.getConstructor(
-                Context::class.java,
-                NewsRepository::class.java,
-                ApiService::class.java
-            ).newInstance(context, newsRepository, apiService)
+                NewsRepository::class.java
+            ).newInstance(newsRepository)
         }
     }
 }

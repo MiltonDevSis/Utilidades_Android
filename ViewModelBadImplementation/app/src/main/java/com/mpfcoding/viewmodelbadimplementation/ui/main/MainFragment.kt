@@ -1,14 +1,16 @@
 package com.mpfcoding.viewmodelbadimplementation.ui.main
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import br.com.douglasmotta.viewmodelbadpractices.databinding.FragmentMainBinding
 import com.mpfcoding.viewmodelbadimplementation.data.NewsRepository
+import com.mpfcoding.viewmodelbadimplementation.db.NewsDatabase
 import com.mpfcoding.viewmodelbadimplementation.network.ApiService
+import kotlinx.coroutines.Dispatchers
 
 class MainFragment : Fragment() {
 
@@ -18,7 +20,7 @@ class MainFragment : Fragment() {
 
     private lateinit var viewModel: MainViewModel
 
-    lateinit var binding: FragmentMainBinding
+    private lateinit var binding: FragmentMainBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,9 +33,11 @@ class MainFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val viewModelFactory = MainViewModel.MainViewModelFactory(
-            requireContext(),
-            NewsRepository(),
-            ApiService()
+            NewsRepository(
+                Dispatchers.IO,
+                NewsDatabase.getDatabase(requireContext().applicationContext).newsDao(),
+                ApiService()
+            )
         )
 
         viewModel = ViewModelProvider(this, viewModelFactory)[MainViewModel::class.java]
@@ -48,7 +52,5 @@ class MainFragment : Fragment() {
                 binding.news.text = "${binding.news.text} $it"
             }
         }
-
-        viewModel.getNews()
     }
 }

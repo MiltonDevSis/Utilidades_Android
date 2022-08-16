@@ -1,24 +1,37 @@
 package com.mpfcoding.viewmodelbadimplementation.data
 
-import android.content.Context
-import com.mpfcoding.viewmodelbadimplementation.db.NewsDatabase
+import com.mpfcoding.viewmodelbadimplementation.db.NewsDao
 import com.mpfcoding.viewmodelbadimplementation.db.NewsEntity
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.Flow
+import com.mpfcoding.viewmodelbadimplementation.db.toDomain
+import com.mpfcoding.viewmodelbadimplementation.network.ApiService
+import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.withContext
 
-class NewsRepository {
+class NewsRepository(
+    private val dispatcher: CoroutineDispatcher,
+    private val newsDao: NewsDao,
+    private val apiService: ApiService
+) {
 
-    suspend fun saveNews(context: Context, newsList: List<NewsEntity>) {
-        val database = NewsDatabase.getDatabase(context)
-        withContext(Dispatchers.IO) {
-            database.newsDao().clearAll()
-            database.newsDao().insertAll(newsList)
+    val allNews = newsDao.getAll().map { newsEntityList ->
+        newsEntityList.map {
+            it.toDomain()
         }
     }
 
-    fun getNews(context: Context): Flow<List<NewsEntity>> {
-        val database = NewsDatabase.getDatabase(context)
-        return database.newsDao().getAll()
+    suspend fun getAndStoreNews() {
+        val newEntityList = apiService.getNews().news.map { title ->
+            NewsEntity(title = title)
+        }
+
+        saveNews(newEntityList)
+    }
+
+    private suspend fun saveNews(newsList: List<NewsEntity>) {
+        withContext(dispatcher) {
+            newsDao.clearAll()
+            newsDao.insertAll(newsList)
+        }
     }
 }
