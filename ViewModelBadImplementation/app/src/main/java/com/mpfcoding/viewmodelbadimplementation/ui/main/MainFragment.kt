@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import br.com.douglasmotta.viewmodelbadpractices.databinding.FragmentMainBinding
-import com.mpfcoding.viewmodelbadimplementation.data.NewsRepository
+import com.mpfcoding.viewmodelbadimplementation.data.NewsRepositoryImpl
 import com.mpfcoding.viewmodelbadimplementation.db.NewsDatabase
 import com.mpfcoding.viewmodelbadimplementation.network.ApiService
 import kotlinx.coroutines.Dispatchers
@@ -18,7 +18,7 @@ class MainFragment : Fragment() {
         fun newInstance() = MainFragment()
     }
 
-    private lateinit var viewModel: MainViewModel
+    lateinit var viewModel: MainViewModel
 
     private lateinit var binding: FragmentMainBinding
 
@@ -33,7 +33,7 @@ class MainFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val viewModelFactory = MainViewModel.MainViewModelFactory(
-            NewsRepository(
+            NewsRepositoryImpl(
                 Dispatchers.IO,
                 NewsDatabase.getDatabase(requireContext().applicationContext).newsDao(),
                 ApiService()

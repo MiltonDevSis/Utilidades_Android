@@ -8,19 +8,19 @@ import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.withContext
 
-class NewsRepository(
+class NewsRepositoryImpl (
     private val dispatcher: CoroutineDispatcher,
     private val newsDao: NewsDao,
     private val apiService: ApiService
-) {
+): NewsRepository {
 
-    val allNews = newsDao.getAll().map { newsEntityList ->
+    override val allNews = newsDao.getAll().map { newsEntityList ->
         newsEntityList.map {
             it.toDomain()
         }
     }
 
-    suspend fun getAndStoreNews() {
+    override suspend fun getAndStoreNews() {
         val newEntityList = apiService.getNews().news.map { title ->
             NewsEntity(title = title)
         }
@@ -28,7 +28,7 @@ class NewsRepository(
         saveNews(newEntityList)
     }
 
-    private suspend fun saveNews(newsList: List<NewsEntity>) {
+    override suspend fun saveNews(newsList: List<NewsEntity>) {
         withContext(dispatcher) {
             newsDao.clearAll()
             newsDao.insertAll(newsList)

@@ -9,7 +9,7 @@ import com.mpfcoding.viewmodelbadimplementation.data.NewsRepository
 import com.mpfcoding.viewmodelbadimplementation.domain.News
 import kotlinx.coroutines.launch
 
-class MainViewModel(
+class MainViewModel (
     private val newsRepository: NewsRepository
 ) : ViewModel() {
 
